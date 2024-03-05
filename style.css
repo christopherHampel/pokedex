@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.background {
+    height: 100vh;
+    background-color: aqua;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#singlePokemon {
+    background-color: rgb(156, 75, 75);
+    width: 200px;
+}
