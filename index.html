@@ -6,6 +6,7 @@
     <title>Pokédex</title>
 
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="fonts.css">
     <script src="script.js"></script>
 
 </head>
@@ -13,30 +14,15 @@
 
     <div class="headline">
         <h1>POKEDEX</h1>
+        <input type="text" placeholder="Search Pokemon"><button id="btnSearch">Start</button>
+    </div>
+
+    <div onclick="showMoreDetails()" id="backgroundMoreDetails" class="more-details-background vs-hidden">
+        <div class="field-more-details" id="fieldMoreDetails"></div>
     </div>
 
     <div id="pokemonCard"></div>
-    <!-- <div class="background">
-        <div class="pokemon-card">
-            <div class="flex-column pd-16">
-                <h3>Name</h3>
-                <div class="flex-column">
-                    <span>Text</span>
-                    <span>Text</span>
-                </div>
-            </div>
-            <div class="pokemon-card-rightside">
-                <div class="pd-8">Number</div>
-                <div class="pokemon-main-image" id="pokemonImage"></div>
-            </div>
-        </div>
-    </div> -->
 
+    <button onclick="load20MorePokemon()">more Pokemon</button>
 </body>
 </html>
-
-
-<!-- <div id="singlePokemon">
-    <h1 id="pokemonName"></h1>
-    <div id="pokemonImage"></div>
-</div> -->
