@@ -4,6 +4,7 @@ function init() {
 
 let startIndex = 1;
 let endIndex = 21;
+let amountLoadedPokemon = 20;
 let currentPokemons = [];
 
 async function load20Pokemon() {
@@ -13,8 +14,8 @@ async function load20Pokemon() {
 }
 
 function load20MorePokemon() {
-    startIndex = startIndex + 20;
-    endIndex = endIndex + 20;
+    startIndex = startIndex + amountLoadedPokemon;
+    endIndex = endIndex + amountLoadedPokemon;
     load20Pokemon(startIndex, endIndex);
 }
 
@@ -110,24 +111,43 @@ function returnHtmlPokemonCard(currentPokemon, i) {
 function returnHtmlMorePokemonDetails(currentPokemon, i) {
     return `
     <div id="largePokemonCardTop${i}" class="large-pokemoncard-top">
-        <div class="flex-column pd-16">
+        <div class="flex-column pd-16 width-100-percent">
             <div>${currentPokemon['name']}</div>
+            <div class="pokemon-types pd-16">
+                <span>${currentPokemon['types']['0']['type']['name']}</span>
+                <span id="type2${i}"></span>
+            </div>
             <div class="">#${currentPokemon['id'].toString().padStart(3, '0')}</div>
         </div>
         <div class="pokemon-main-image">
-            <img class="pokemon-image" src="${currentPokemon['sprites']['other']['home']['front_shiny']}">
-        </div>
-        <div class="pokemon-types pd-16">
-            <span>${currentPokemon['types']['0']['type']['name']}</span>
-            <span id="type2${i}"></span>
+            <img class="pokemon-image-big" src="${currentPokemon['sprites']['other']['home']['front_shiny']}">
         </div>
     </div>
 
     <div class="large-pokemoncard-bottom">
-        <a href="#">About</a>
-        <a href="#">Base Stats</a>
-        <a href="#">Evolution</a>
-        <a href="#">Moves</a>
+        <div class="links-for-pokemoncard">
+            <a href="#" onclick="about(${i}, 'about')">About</a>
+            <a href="#" onclick="about(${i}, 'baseStats')">Base Stats</a>
+            <a href="#">Evolution</a>
+            <a href="#">Moves</a>
+        </div>
+        <div id="fieldInformation${i}"></div>
     </div>
 `
+}
+
+function about(i, whichHtml) {
+    let container = document.getElementById(`fieldInformation${i}`)
+    let pokemon = currentPokemons[i];
+    container.innerHTML = '';
+
+    if(whichHtml == 'about') {
+    container.innerHTML = `<div>${pokemon['name']}</div>`
+    } else if( whichHtml == 'baseStats') {
+        container.innerHTML = `<div>${pokemon['height']}</div>`
+    }
+}
+
+function notClose(event) {
+    event.stopPropagation();
 }

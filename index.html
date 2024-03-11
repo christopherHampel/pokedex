@@ -7,7 +7,9 @@
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="fonts.css">
+
     <script src="script.js"></script>
+    <script src="returnHtml.js"></script>
 
 </head>
 <body onload="init()">
@@ -18,7 +20,7 @@
     </div>
 
     <div onclick="showMoreDetails()" id="backgroundMoreDetails" class="more-details-background vs-hidden">
-        <div class="field-more-details" id="fieldMoreDetails"></div>
+        <div class="field-more-details" id="fieldMoreDetails" onclick="notClose(event)"></div>
     </div>
 
     <div id="pokemonCard"></div>
