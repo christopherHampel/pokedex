@@ -42,20 +42,29 @@ async function loadPokemonFromAPI(i) {
     let currentPokemon = await fetch(url);
     let currentPokemonAsJson = await currentPokemon.json();
 
-    renderPokemonCard(currentPokemonAsJson, i);
-    pokemonSecondType(currentPokemonAsJson, i);
+    testFunction(currentPokemonAsJson, i);
+    // renderPokemonCard(currentPokemonAsJson, i);
+    // pokemonSecondType(currentPokemonAsJson, i);
 
-    let background = document.getElementById(`pokemonCardClass${i}`);
-    pokemonTypeBackgroundColor(currentPokemonAsJson, background);
+    // let background = document.getElementById(`pokemonCardClass${i}`);
+    // pokemonTypeBackgroundColor(currentPokemonAsJson, background);
     
     currentPokemons.push(currentPokemonAsJson);
 
-    console.log(currentPokemonAsJson);
+    // console.log(currentPokemonAsJson);
+}
+
+function testFunction(currentPokemonAsJson, i) {
+    renderPokemonCard(currentPokemonAsJson, i);
+    
+    let background = document.getElementById(`pokemonCardClass${i}`);
+    pokemonTypeBackgroundColor(currentPokemonAsJson, background);
 }
 
 function renderPokemonCard(currentPokemonAsJson, i) {
     let pokemonCard = document.getElementById('pokemonCard');
     pokemonCard.innerHTML += returnHtmlPokemonCard(currentPokemonAsJson, i);
+    pokemonSecondType(currentPokemonAsJson, i);
 }
 
 function pokemonSecondType(currentPokemonAsJson, i) {
@@ -83,9 +92,10 @@ function pokemonTypeBackgroundColor(currentPokemonAsJson, background) {
 function showMoreDetails(i) {
     let backgroundMoreDetails = document.getElementById('backgroundMoreDetails');
     let pokemonCard = document.getElementById('pokemonCard');
+    let body = document.getElementById('body');
 
     backgroundMoreDetails.classList.toggle('vs-hidden');
-    pokemonCard.classList.toggle('position-fixed');
+    body.classList.toggle('overflow-hidden');
     if(!backgroundMoreDetails.classList.contains('vs-hidden')) {
         renderSinglePokemon(i);
     }
@@ -149,7 +159,31 @@ function notClose(event) {
 
 function loadScreen() {
     let background = document.getElementById('loadBackground');
-    let loadContent = document.getElementById('loadContent');
+    // let loadContent = document.getElementById('loadContent');
 
     background.classList.toggle('vs-hidden');
+}
+
+function filterPokemons() {
+    let letters = document.getElementById('inputSearch').value;
+    letters = letters.toLowerCase();
+    let pokemonCard = document.getElementById('pokemonCard');
+    pokemonCard.innerHTML = '';
+    if(letters.length >= 3) {
+
+    for(i = 0; i < currentPokemons.length; i++) {
+        let pokemon = currentPokemons[i]['name'];
+        let completePokemon = currentPokemons[i];
+        if (pokemon.toLowerCase().includes(letters)) {
+        pokemonCard.innerHTML += returnHtmlPokemonCard(completePokemon, i);
+        let background = document.getElementById(`pokemonCardClass${i}`);
+        pokemonTypeBackgroundColor(completePokemon, background);  
+        }
+    }
+} else {
+    for(i = 0; i < currentPokemons.length; i++) {
+    let pokemon = currentPokemons[i];
+    testFunction(pokemon, i);
+    }
+} 
 }

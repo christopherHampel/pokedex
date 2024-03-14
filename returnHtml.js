@@ -7,12 +7,12 @@ function returnHtmlPokemonCard(currentPokemon, i) {
         </div>
 
         <div class="pokemon-card-rightside">
+            <div id="pokemonImage">
+                <img class="pokemon-image" src="${currentPokemon['sprites']['other']['home']['front_shiny']}">
+            </div>
             <div class="pokemon-types pd-16">
                 <span>${currentPokemon['types']['0']['type']['name']}</span>
                 <span id="type2${i}"></span>
-            </div>
-            <div class="pokemon-main-image" id="pokemonImage">
-                <img class="pokemon-image" src="${currentPokemon['sprites']['other']['home']['front_shiny']}">
             </div>
         </div>
     </div>`
@@ -49,7 +49,13 @@ function returnHtmlMorePokemonDetails(currentPokemon, i) {
 }
 
 function returnPokemonAbout(pokemon) {
-    return `<div>${pokemon['name']}</div>`
+    return `
+    <div class="list-about">
+        <li>Name: ${pokemon['name']}</li>
+        <li>height: ${pokemon['height']}</li>
+        <li>Weight: ${pokemon['weight']}</li>
+    </div>
+    <div class="width-33"></div>`
 }
 
 function returnPokemonBaseStats(pokemon) {

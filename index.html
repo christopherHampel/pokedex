@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokédex</title>
 
+    <link rel="shortcut icon" href="./img/pokemon-1536848_640.png" type="image/x-icon">
+
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="fonts.css">
 
@@ -12,24 +14,31 @@
     <script src="returnHtml.js"></script>
 
 </head>
-<body onload="init()">
+<body id="body" onload="init()">
+    <div class="max-width">
+        <div class="headline">
+            <div class="width-33"></div>
+            <h1 class="width-33">POKEDEX</h1>
+            <div class="width-33 search-bar">
+                <input type="text" placeholder="Search Pokemon" id="inputSearch" oninput="filterPokemons()">
+                <!-- <button id="btnSearch">Start</button> -->
+            </div>
+        </div>
 
-    <div class="headline">
-        <h1>POKEDEX</h1>
-        <input type="text" placeholder="Search Pokemon"><button id="btnSearch">Start</button>
+        <div onclick="showMoreDetails()" id="backgroundMoreDetails" class="more-details-background vs-hidden">
+            <div class="field-more-details" id="fieldMoreDetails" onclick="notClose(event)"></div>
+            <div>Vor</div>
+        </div>
+
+        <div id="loadBackground" class="load vs-hidden">
+            <div id="loadContent"></div>
+        </div>
+
+        <div id="pokemonCard"></div>
+
+        <div class="btn-more-pokemon">
+            <button onclick="load20MorePokemon()">more Pokemon</button>
+        </div>
     </div>
-
-    <div onclick="showMoreDetails()" id="backgroundMoreDetails" class="more-details-background vs-hidden">
-        <div class="field-more-details" id="fieldMoreDetails" onclick="notClose(event)"></div>
-        <div>Vor</div>
-    </div>
-
-    <div id="loadBackground" class="load vs-hidden">
-        <div id="loadContent"></div>
-    </div>
-
-    <div id="pokemonCard"></div>
-
-    <button onclick="load20MorePokemon()">more Pokemon</button>
 </body>
 </html>
