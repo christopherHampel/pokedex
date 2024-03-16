@@ -43,14 +43,12 @@ async function loadPokemonFromAPI(i) {
     let currentPokemonAsJson = await currentPokemon.json();
 
     testFunction(currentPokemonAsJson, i);
+    currentPokemons.push(currentPokemonAsJson);
+    
     // renderPokemonCard(currentPokemonAsJson, i);
     // pokemonSecondType(currentPokemonAsJson, i);
-
     // let background = document.getElementById(`pokemonCardClass${i}`);
     // pokemonTypeBackgroundColor(currentPokemonAsJson, background);
-    
-    currentPokemons.push(currentPokemonAsJson);
-
     // console.log(currentPokemonAsJson);
 }
 

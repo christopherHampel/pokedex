@@ -15,19 +15,23 @@
 
 </head>
 <body id="body" onload="init()">
-    <div class="max-width">
-        <div class="headline">
-            <div class="width-33"></div>
-            <h1 class="width-33">POKEDEX</h1>
-            <div class="width-33 search-bar">
-                <input type="text" placeholder="Search Pokemon" id="inputSearch" oninput="filterPokemons()">
-                <!-- <button id="btnSearch">Start</button> -->
+
+    <div class="headline">
+        <div class="max-width display-for-flex">
+            <div class="width-33">
+                <img class="logo-image" src="./img/pokemon-1536848_640.png" alt="Logo">
+            </div>
+            <h1 class="width-33">Pokédex</h1>
+            <div class="width-33">
+                <input class="search-bar" type="text" placeholder="Search Pokemon" id="inputSearch" oninput="filterPokemons()">
             </div>
         </div>
+    </div>
 
-        <div onclick="showMoreDetails()" id="backgroundMoreDetails" class="more-details-background vs-hidden">
+    <div class="max-width">
+        <div id="backgroundMoreDetails" class="more-details-background vs-hidden">
+            <div class="close-button" onclick="showMoreDetails()"><i>close view</i></div>
             <div class="field-more-details" id="fieldMoreDetails" onclick="notClose(event)"></div>
-            <div>Vor</div>
         </div>
 
         <div id="loadBackground" class="load vs-hidden">
@@ -37,8 +41,22 @@
         <div id="pokemonCard"></div>
 
         <div class="btn-more-pokemon">
-            <button onclick="load20MorePokemon()">more Pokemon</button>
+            <button onclick="load20MorePokemon()">load Pokemon</button>
+            <a href="#">hoch</a>
         </div>
     </div>
+           
+            <footer>
+                <div class="max-width content-footer">
+            <div class="d-flex-center">
+                <img class="copyright-image" src="./img/copyright-1345865_640.png" alt="Copyright">
+                <span class="fz-16 color">Pokedex 2024</span>
+            </div>
+            <div class="d-flex">
+                <span class="fz-16">Erstellt von Christopher Hampel,</span>
+                <span class="fz-16">Icons von <a href="www.pixabay.com">Pixabay.com</a>.</span>
+            </div>
+        </div>
+        </footer>
 </body>
 </html>

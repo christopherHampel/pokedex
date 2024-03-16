@@ -10,8 +10,8 @@ function returnHtmlPokemonCard(currentPokemon, i) {
             <div id="pokemonImage">
                 <img class="pokemon-image" src="${currentPokemon['sprites']['other']['home']['front_shiny']}">
             </div>
-            <div class="pokemon-types pd-16">
-                <span>${currentPokemon['types']['0']['type']['name']}</span>
+            <div class="pokemon-types">
+                <span class="pokemon-type">${currentPokemon['types']['0']['type']['name']}</span>
                 <span id="type2${i}"></span>
             </div>
         </div>
@@ -21,9 +21,9 @@ function returnHtmlPokemonCard(currentPokemon, i) {
 function returnHtmlMorePokemonDetails(currentPokemon, i) {
     return `
     <div id="largePokemonCardTop${i}" class="large-pokemoncard-top">
-        <div class="flex-column pd-16 width-100-percent">
+        <div class="head-information pd-16 width-100-percent">
             <div>${currentPokemon['name']}</div>
-            <div class="pokemon-types pd-16">
+            <div class="pokemon-types-big pd-16">
                 <span>${currentPokemon['types']['0']['type']['name']}</span>
                 <span id="type2${i}"></span>
             </div>
@@ -40,7 +40,6 @@ function returnHtmlMorePokemonDetails(currentPokemon, i) {
         <div class="links-for-pokemoncard">
             <a href="#" onclick="about(${i}, 'about')">About</a>
             <a href="#" onclick="about(${i}, 'baseStats')">Base Stats</a>
-            <a href="#" onclick="about(${i}, 'evolution')">Evolution</a>
             <a href="#" onclick="about(${i}, 'moves')">Moves</a>
         </div>
 
@@ -62,9 +61,9 @@ function returnPokemonBaseStats(pokemon) {
     return `<div>${pokemon['height']}</div>`
 }
 
-function returnPokemonEvolution(pokemon) {
-    return ``
-}
+// function returnPokemonEvolution(pokemon) {
+//     return ``
+// }
 
 function returnPokemonMoves(pokemon) {
     return ``
