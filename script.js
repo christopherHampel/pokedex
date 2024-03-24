@@ -95,6 +95,7 @@ function showMoreDetails(i) {
     if(!backgroundMoreDetails.classList.contains('vs-hidden')) {
         renderSinglePokemon(i);
         checkLastPokemon(i);
+        defineButton('', false, false, i);
     }
 }
 

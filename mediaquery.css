@@ -59,6 +59,10 @@
         font-size: 16px;
     }
 
+    .d-flex-for-button {
+        gap: 8px;
+    }
+
     .pokemon-card {
         width: 150px;
     }

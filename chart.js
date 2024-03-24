@@ -5,8 +5,8 @@ function renderChart(i, canvasField) {
   i--;
   let stats = currentPokemons[i]['stats'].length;
 
-  statNames.splice(i, statNames.length);
-  baseStats.splice(i, baseStats.length);
+  statNames.splice(0, statNames.length);
+  baseStats.splice(0, baseStats.length);
 
   forLoopstatNames(stats, i);
 
