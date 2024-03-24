@@ -4,14 +4,31 @@
     font-family: 'Open Sans';
     font-size: 20px;
     scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: #e41f25 #756c6c;
 }
 
 body {
-    /* background-color: #655a5a; */
     background-color: #756c6c;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+}
+
+/* ===== Scrollbar CSS ===== */
+  /* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 16px;
+}
+
+*::-webkit-scrollbar-track {
+    background: #756c6c;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #e41f25;
+    border-radius: 10px;
+    border: 3px solid #ffffff;
 }
 
 .max-width {
@@ -91,6 +108,30 @@ h1 {
     font-family: 'open-sans';
 }
 
+.no-pokemon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    color: white;
+}
+
+.d-flex-for-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding-right: 24px;
+    padding-left: 24px;
+}
+
+.d-center {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 33.33%;
+}
+
 .pokemon-card:hover {
     cursor: pointer;
     box-shadow: 0px 0px 35px -2px rgba(0,0,0,0.75);
@@ -133,12 +174,6 @@ h1 {
     color: white;
     border-radius: 8px;
 }
-
-/* .pokemon-type {
-    padding: 2px;
-    background: rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-} */
 
 .pd-16 {
     padding: 16px;
@@ -198,6 +233,13 @@ h1 {
     visibility: hidden;
 }
 
+.scroll-up {
+    width: 64px;
+    height: 64px;
+    background-color: rgb(228, 31, 37);
+    border-radius: 50%;
+}
+
 .large-pokemoncard-top {
     height: 50%;
     display: flex;
@@ -218,7 +260,7 @@ h1 {
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    /* gap: 8px; */
     background-color: white;
     height: 324px;
     margin-top: -24px;
@@ -229,24 +271,36 @@ h1 {
     width: 100%;
 }
 
+.mg-top-170 {
+    margin-top: -170px;
+}
+
 .links-for-pokemoncard {
     display: flex;
     justify-content: space-around;
     align-items: flex-start;
-    margin-top: 40px;
+    margin-top: 24px;
     width: 100%;
     height: 33.33%
 }
 
 .icon {
-    width:24px;
-    height:24px;
+    width: 64px;
+    height: 64px;
+    padding: 16px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+}
+
+.icon:hover {
+    cursor: pointer;
 }
 
 .pokemon-main-image {
     display: flex;
+    align-items: center;
     margin-top: -50px;
-    gap: 16px;
+    gap: 4px;
 }
 
 .load {
@@ -262,13 +316,8 @@ h1 {
     align-items: center;
 }
 
-.pokemon-main-image {
-    display: flex;
-    align-items: center;
-}
-
 .pokemon-image-big {
-    width: 250px;
+    width: 350px;
 }
 
 #loadContent {
@@ -293,7 +342,8 @@ h1 {
 }
 
 .btn-more-pokemon {
-    text-align: center;
+    display: flex;
+    justify-content: center;
     margin: 24px;
 }
 
@@ -377,73 +427,16 @@ a {
     font-weight: bold;
 }
 
-@media(max-width: 900px) {
-    h1 {
-        font-size: 40px;
-    }
-
-    .search-bar {
-        width: 150px;
-        padding: 4px;
-    }
+a:hover {
+    cursor: pointer;
 }
 
-@media(max-width: 570px) {
-    .display-for-flex {
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    .logo-image {
-        display: none;
-    }
-
-    .content-footer {
-        flex-direction: column;
-        gap: 16px;
-    }
-
-    .fz-16 {
-        font-size: 16px;
-    }
-
-    button {
-        padding: 12px;
-    }
+.btn-pokemoncard {
+    padding: 4px;
+    border-radius: 8px;
+    background-color: rgb(228, 31, 37);
 }
 
-@media(max-width: 900px) or (max-height: 1000px) {
-    .field-more-details {
-        height: 600px;
-        width: 400px;
-    }
-}
-
-@media(max-width: 500px) {
-    * {
-        font-size: 16px;
-    }
-
-    .pokemon-card {
-        width: 150px;
-    }
-
-    .flex-column {
-        flex-direction: column;
-    }
-
-    .field-more-details {
-        width: 300px;
-        height: 500px;
-    }
-
-    .pokemon-image-big {
-        width: 180px;
-    }
-}
-
-@media(max-width: 370px) {
-    .pokemon-card {
-        width: 120px;
-    }
+.btn-pokemoncard:hover {
+    cursor: pointer;
 }

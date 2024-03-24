@@ -29,22 +29,33 @@ function returnHtmlMorePokemonDetails(currentPokemon, i) {
             </div>
             <div class="">#${currentPokemon['id'].toString().padStart(3, '0')}</div>
         </div>
-        <div class="pokemon-main-image">
+        <div class="pokemon-main-image" id="pokemonMainImage${i}">
             <img id="last${i}" onclick="movePokemonCard(${i}, 'last')" class="icon" src="./img/thin-chevron-arrow-left-icon.png" alt="Last Pokemon">
             <img class="pokemon-image-big" src="${currentPokemon['sprites']['other']['home']['front_shiny']}">
             <img onclick="movePokemonCard(${i}, 'next')" class="icon" src="./img/line-angle-right-icon.png" alt="Next Pokemon">
         </div>
     </div>
 
-    <div class="large-pokemoncard-bottom">
+    <div class="large-pokemoncard-bottom" id="largePokemonCardBottom${i}">
         <div class="links-for-pokemoncard">
-            <a href="#" onclick="about(${i}, 'about')">About</a>
-            <a href="#" onclick="about(${i}, 'baseStats')">Base Stats</a>
-            <a href="#" onclick="about(${i}, 'moves')">Moves</a>
+            <button class="btn-pokemoncard" id="aboutLink${i}" onclick="about(${i}, 'about')">About</button>
+            <button class="btn-pokemoncard" id="statsLink${i}" onclick="about(${i}, 'baseStats')">Base Stats</button>
         </div>
 
         <div id="fieldInformation${i}"></div>
+        <div id="canvasField${i}"><canvas class="vs-hidden" id="myChart${i}"></canvas></div> 
+
     </div>`
+}
+
+function returnNoPokemon() {
+    return `
+    <div class="no-pokemon">
+        <div>
+            Didn't find your Pokemon? Please load 20 more Pokemon!
+        </div>
+        <button onclick="load20MorePokemon()">load Pokemon</button>
+    </div>`;
 }
 
 function returnPokemonAbout(pokemon) {
@@ -54,17 +65,14 @@ function returnPokemonAbout(pokemon) {
         <li>height: ${pokemon['height']}</li>
         <li>Weight: ${pokemon['weight']}</li>
     </div>
-    <div class="width-33"></div>`
+    <div class="width-33"></div>`;
 }
 
-function returnPokemonBaseStats(pokemon) {
-    return `<div>${pokemon['height']}</div>`
-}
-
-// function returnPokemonEvolution(pokemon) {
-//     return ``
-// }
-
-function returnPokemonMoves(pokemon) {
-    return ``
+function returnBtnAreaStart() {
+return `
+    <div class="d-flex-for-button">
+        <div class="width-33"></div>
+        <button onclick="load20MorePokemon()">load Pokemon</button>
+        <a class="d-center" href="#"><img class="scroll-up" src="./img/app-1646212_640.png" alt="Arrow-Up"></a>
+    </div>`
 }
